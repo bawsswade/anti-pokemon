@@ -1,0 +1,19 @@
+abilities:
+	- swim in water
+	- hide in grass (sneak)
+	- jump over ledges
+
+leveling abilites?
+	- after each stage?
+
+weapons
+	- start with rock
+	- food to distract
+	- guns later on
+
+
+
+
+MECHANICS:
+changin maps
+	- read text file for max right, up and down
