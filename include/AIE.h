@@ -75,6 +75,7 @@ typedef enum CameraDirection
 #define 	GLFW_KEY_LEFT   263
 #define 	GLFW_KEY_DOWN   264
 #define 	GLFW_KEY_UP   265
+#define 	GLFW_KEY_ESCAPE   256
 
 typedef enum
 {

@@ -1,0 +1,5 @@
+if changing size of window:
+- 768.f
+- uncomment BGoffset
+	- checkgridposition
+	- main's if statements
