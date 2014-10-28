@@ -1,6 +1,11 @@
 #include "player.h"
 #include <string>
 
+Player::Player()
+{
+
+}
+
 float Player::CheckNextXPos(float deltaT)
 {
 	float temp;
@@ -329,6 +334,11 @@ float Player::GetYPos()
 	return y;
 }
 
+int Player::GetDirection()
+{
+	return move;
+}
+
 void Player::SetPos(float a_x, float a_y)
 {
 	x = a_x;
@@ -349,4 +359,39 @@ float Player::GetWidth()
 float Player::GetHeight()
 {
 	return height;
+}
+
+void Player::UpdateWeapon(float deltaT)
+{
+	
+}
+
+Weapon& Player::GetInactiveBullet()
+{
+	for (int i = 0; i < MAX_BULLETS; i++)
+	{
+		if (!Rock[i].GetActive())
+		{
+			return Rock[i];
+		}
+	}
+
+	return this->Rock[0];
+}
+
+void Player::Shoot()
+{
+	if (IsKeyDown(GLFW_KEY_SPACE) && currentReloadBulletTime > maxBulletReloadTime)
+	{
+		GetInactiveBullet().InitializeBullet(x, y, move);
+		currentReloadBulletTime = .0f;
+	}
+	currentReloadBulletTime += GetDeltaTime();
+ 	//Rock.Update(GetDeltaTime(), move);
+	//Rock.Draw();
+}
+
+Player::~Player()
+{
+
 }

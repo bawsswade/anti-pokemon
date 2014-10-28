@@ -105,13 +105,13 @@ char Background::CheckGridPosition(float a_x, float a_y)
 	//cout << mapX << ", " << mapY << ": " << map[mapX][mapY] << endl;
 	//cout << x << " - " << prevX << " = " << check << endl;
 	//DEBUGGING////////////////////////////////////////////////////////////
-	for (int a = 0; a < 24; a++){
+	/*for (int a = 0; a < 24; a++){
 		for (int b = 0; b < 24; b++){
 			string sX(1, map[a][b]);
 			const char* cGrid = sX.c_str();
 			DrawString(cGrid, (a)*64+5, (b)*64+5, SColour(0,255,0,255));
 		}
-	}
+	}*/
 
 	/*for (int a = BGoffsetX; a < BGoffsetX +12; a++){
 	for (int b = BGoffsetY; b <BGoffsetY + 12; b++){

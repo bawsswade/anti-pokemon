@@ -23,14 +23,18 @@ public:
 	float CheckNextYPos(float deltaT);
 	void Move(float deltaT, float playerX, float playerY, char gridValue);
 
+	void SetActive(bool a_isActive);
+	bool GetActive();
+
 private:
 	bool moveDir = 0;
 	bool LorR = 0;
-	bool UorD = 0;
+	bool UorD = 1;
 	float x, y;
 	float width, height;
 	unsigned int spriteID;
-	int speed = 150.f;
+	float speed = 125.f;
+	bool isActive = false;
 };
 
 #endif

@@ -44,7 +44,6 @@ float Enemy::GetHeight()
 
 float Enemy::CheckNextXPos(float deltaT)
 {
-	// gotta change functions to apply without isKeyDown
 	float temp;
 	if (LorR = 0)
 	{
@@ -71,18 +70,28 @@ float Enemy::CheckNextYPos(float deltaT)
 	return y;
 }
 
+void Enemy::SetActive(bool a_isActive)
+{
+	isActive = a_isActive;
+}
+
+bool Enemy::GetActive()
+{
+	return isActive;
+}
+
 void Enemy::Move(float deltaT, float playerX, float playerY, char gridValue)
 {
 	if (moveDir == 1)
 	{
 		// left
-		if (playerX < x && gridValue != '1')
+		if (playerX < x /*&& gridValue != '1'*/)
 		{
 			x -= speed * deltaT;
 			LorR = 0;
 		}
 		//right
-		if (playerX > x && gridValue != '1')
+		if (playerX > x /*&& gridValue != '1'*/)
 		{
 			x += speed * deltaT;
 			LorR = 1;
@@ -92,13 +101,13 @@ void Enemy::Move(float deltaT, float playerX, float playerY, char gridValue)
 	}
 	else{
 		//up
-		if (playerY > y && gridValue != '1')
+		if (playerY > y /*&& gridValue != '1'*/)
 		{
 			y += speed * deltaT;
 			UorD = 0;
 		}
 		//down
-		if (playerY < y && gridValue != '1')
+		if (playerY < y /*&& gridValue != '1'*/)
 		{
 			y -= speed * deltaT;
 			UorD = 1;

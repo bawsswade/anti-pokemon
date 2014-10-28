@@ -91,12 +91,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="background.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="player.h" />
   </ItemGroup>
