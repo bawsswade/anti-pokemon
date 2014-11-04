@@ -91,6 +91,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="background.cpp" />
+    <ClCompile Include="MathLibrary.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="player.cpp" />
@@ -98,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h" />
+    <ClInclude Include="MathLibrary.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="player.h" />

@@ -1,0 +1,21 @@
+PLAYER
+CheckNextXPos();
+CheckNextYPos();
+Shoot();
+Update();
+sprite, x, y, width, height, speed, timePassed, lastChange, bulletReload, currReloadBullet
+
+ENEMY
+CheckNextXPos();
+CheckNextYPos();
+x, y, width, height, sprite, isActive, speed
+
+WEAPON
+Draw();
+Update();
+x, y, width, height, velocity, sprite, direction, isActive
+
+BACKGROUND
+CheckGridPos();
+SetFile();
+x, y, sprite, isMoving, BGOffsetX, BGOffsetY
