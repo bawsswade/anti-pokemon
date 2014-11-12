@@ -24,6 +24,7 @@ public:
 	bool operator==(Vector2D &other);
 
 	//Maths
+	void Scale(Vector2D v, float num);
 	float GetAngle(Vector2D a, Vector2D b);
 
 //private:
@@ -47,6 +48,10 @@ private:
 class Vector3D
 {
 public:
+	Vector3D();
+	Vector3D(float a_x, float a_y, float a_z);
+	~Vector3D();
+
 	//OVERLOAD OPERATORS
 	Vector3D operator+(Vector3D &other);
 	Vector3D operator-(Vector3D &other);
@@ -62,8 +67,9 @@ public:
 
 	//Maths
 	Vector3D Normalize(Vector3D v);
-
 	Vector3D Normalize(float a_x, float a_y, float a_z);
+
+	void Scale(Vector3D v, float num);
 
 	// return scalar of vector b projected onto vector a
 	float DotProduct(Vector3D a, Vector3D b);

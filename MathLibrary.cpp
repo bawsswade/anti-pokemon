@@ -89,6 +89,12 @@ float DotProduct(Vector2D a, Vector2D b)
 	return (a.x * b.x) + (a.y * b.y);
 }
 
+void Scale(Vector2D v, float num)
+{
+	v.x *= num;
+	v.y *= num;
+}
+
 float GetAngle(Vector2D a, Vector2D b)
 {
 	return acos(DotProduct(Normalize(a),Normalize(b)));
@@ -108,6 +114,15 @@ Vector2D ::~Vector2D(){};
 
 
 //****************** 3D Vector**************************
+Vector3D::Vector3D(){};
+
+Vector3D::Vector3D(float a_x, float a_y, float a_z)
+{
+	x = a_x;
+	y = a_y;
+	z = a_z;
+}
+
 Vector3D Vector3D::operator+(Vector3D &other)
 {
 	Vector3D temp;
@@ -192,6 +207,13 @@ Vector3D Normalize(Vector3D v)
 	return temp;
 }
 
+void Scale(Vector3D v, float num)
+{
+	v.x *= num;
+	v.y *= num;
+	v.z *= num;
+}
+
 float DotProduct(Vector3D a, Vector3D b)
 {
 	return (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
@@ -215,3 +237,5 @@ float Magnitude(float x, float y)
 	float c = sqrt((x * x) + (y * y));
 	return c;
 }
+
+Vector3D ::~Vector3D(){};
