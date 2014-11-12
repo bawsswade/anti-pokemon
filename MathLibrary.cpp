@@ -1,6 +1,14 @@
 #include "MathLibrary.h"
 
 //*************** 2D Vector *************************
+Vector2D::Vector2D(){};
+
+Vector2D::Vector2D(float a_x, float a_y)
+{
+	x = a_x;
+	y = a_y;
+}
+
 Vector2D Vector2D::operator+(Vector2D &other)
 {
 	Vector2D temp;
@@ -75,6 +83,26 @@ Vector2D Normalize(Vector2D v)
 	temp.y = v.y / Magnitude(v);
 	return temp;
 }
+
+float DotProduct(Vector2D a, Vector2D b)
+{
+	return (a.x * b.x) + (a.y * b.y);
+}
+
+float GetAngle(Vector2D a, Vector2D b)
+{
+	return acos(DotProduct(Normalize(a),Normalize(b)));
+}
+
+Vector2D Perp(Vector2D v)
+{
+	Vector2D temp;
+	temp.x = -1 * v.y;
+	temp.y = v.x;
+	return temp;
+}
+
+Vector2D ::~Vector2D(){};
 //******************************************************
 
 
@@ -162,6 +190,11 @@ Vector3D Normalize(Vector3D v)
 	Vector3D temp;
 	Magnitude(v.x, v.y);
 	return temp;
+}
+
+float DotProduct(Vector3D a, Vector3D b)
+{
+	return (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
 }
 //********************************************************
 
