@@ -3,11 +3,17 @@
 #include "AIE.h"
 #include <cmath>
 #include <iostream>
+#include "background.h"
 using namespace std;
+
+
+
 
 class Enemy
 {
 public:
+	
+	Enemy();
 	void SetPosition(float a_x, float a_y);
 	float GetX();
 	float GetY();
@@ -18,18 +24,27 @@ public:
 	void SetSize(float a_width, float a_height);
 	float GetWidth();
 	float GetHeight();
-
-	float CheckNextXPos(float deltaT);
-	float CheckNextYPos(float deltaT);
-	void Move(float deltaT, float playerX, float playerY, char gridValue);
+	
+	float CheckNextXPos(float deltaT, float playerX);
+	float CheckNextYPos(float deltaT, float playerY);
+	void ChangeDir(float pX, float pY);
+	void Move(float deltaT, float pX, float pY);
 
 	void SetActive(bool a_isActive);
 	bool GetActive();
 
+	void Draw();
+	~Enemy();
+
 private:
-	bool moveDir = 0;
-	bool LorR = 0;
-	bool UorD = 1;
+	enum dir{
+		down,
+		left,
+		up,
+		right
+	};
+	dir Direction;
+
 	float x, y;
 	float width, height;
 	unsigned int spriteID;

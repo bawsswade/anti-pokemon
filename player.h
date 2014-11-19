@@ -40,6 +40,8 @@ public:
 	float GetHeight();
 	int GetDirection();
 
+	void Draw();
+
 	void SetPos(float a_x, float a_y);
 	void UpdateWeapon(float deltaT);
 

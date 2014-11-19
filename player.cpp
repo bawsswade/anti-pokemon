@@ -391,6 +391,11 @@ void Player::Shoot()
 	//Rock.Draw();
 }
 
+void Player::Draw()
+{
+	DrawSprite(spriteID);
+}
+
 Player::~Player()
 {
 

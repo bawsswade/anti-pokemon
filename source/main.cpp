@@ -31,9 +31,12 @@ static float timePassed = 0;
 int main(int argc, char* argv[])
 {
 	Setupgame();
+
+	//Pokemon.ChangeDir();
+
 	//float fDeltaT = GetDeltaTime();
 	//cout << fDeltaT;
-	GAMESTATE state = MAIN_MENU;
+	GAMESTATE state = GAMEPLAY;
 
     //**********Game Loop********************
     do
@@ -72,14 +75,28 @@ int main(int argc, char* argv[])
 		{
 			ClearScreen();
 			float fDeltaT = GetDeltaTime();
-			Red->MovePlayer(fDeltaT, BG.Scrolling(), BG.CheckGridPosition(Red->CheckNextXPos(fDeltaT), Red->CheckNextYPos(fDeltaT)));
-			
-			BG.MoveBG(Red->GetXPos(), Red->GetYPos(), fDeltaT);
-			Red->Shoot();
-			
-			Pokemon.Move(fDeltaT, Red->GetXPos(), Red->GetYPos(), BG.CheckGridPosition(Pokemon.CheckNextXPos(fDeltaT), Pokemon.CheckNextYPos(fDeltaT)));
 
+			// check and move player
+			char pGridNum = BG.CheckGridPosition(Red->CheckNextXPos(fDeltaT), Red->CheckNextYPos(fDeltaT));
+			Red->MovePlayer(fDeltaT, BG.Scrolling(), pGridNum);
+			Red->Shoot();
+
+			//move/change BG (not used yet)
+			BG.MoveBG(Red->GetXPos(), Red->GetYPos(), fDeltaT);
 			ChangeMaps();
+			
+			//enemy move
+			if (Pokemon.GetActive())
+			{
+				char eGridNum = BG.CheckGridPosition(Pokemon.CheckNextXPos(fDeltaT, Red->GetXPos()), Pokemon.CheckNextYPos(fDeltaT, Red->GetYPos()));
+				while (eGridNum != '0')
+				{
+					Pokemon.ChangeDir(Red->GetXPos(), Red->GetYPos());
+					eGridNum = BG.CheckGridPosition(Pokemon.CheckNextXPos(fDeltaT, Red->GetXPos()), Pokemon.CheckNextYPos(fDeltaT, Red->GetYPos()));
+					cout << eGridNum << endl;
+				}
+				Pokemon.Move(fDeltaT, Red-> GetXPos(), Red-> GetYPos());
+			}
 			
 			if (IsKeyDown(GLFW_KEY_ESCAPE))
 				state = QUIT;
@@ -98,20 +115,15 @@ int main(int argc, char* argv[])
 			}
 
 			// draw everything
-			DrawSprite(BG.GetSprite());
-			DrawSprite(Red->GetSprite());
-			if (Pokemon.GetActive())
-			{
-				DrawSprite(Pokemon.GetSprite());
-			}
-
+			BG.Draw();
+			Red->Draw();
+			Pokemon.Draw();
 			for (int i = 0; i < MAX_BULLETS; i++)
 			{
 				if (Red->Rock[i].GetActive()){
 					Red->Rock[i].Update(fDeltaT, Red->Rock[i].GetDirection(), BG.CheckGridPosition(Red->Rock[i].GetX(), Red->Rock[i].GetY()));
 					Red->Rock[i].Draw();
 				}
-
 			}
 			
 			break;

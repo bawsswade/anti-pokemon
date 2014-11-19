@@ -17,7 +17,7 @@ public:
 	char CheckGridPosition(float a_x, float a_y);
 	float GetBGOffsetX();
 	float GetBGOffsetY();
-	
+	void Draw();
 
 private:
 	static const char CANWALK = '0';

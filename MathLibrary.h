@@ -10,7 +10,7 @@ public:
 	Vector2D(float a_x, float a_y);
 	~Vector2D();
 
-	//OVERLOAD OPERATORS
+	//OVERLOAD OPERATORS 
 	Vector2D operator+(Vector2D &other);
 	Vector2D operator-(Vector2D &other);
 	Vector2D operator*(Vector2D &other);

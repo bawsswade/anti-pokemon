@@ -121,6 +121,10 @@ char Background::CheckGridPosition(float a_x, float a_y)
 	}
 	}
 	//DEBUGGING////////////////////////////////////////////////////////////*/
-
 	return map[mapX][mapY];
+}
+
+void Background::Draw()
+{
+	DrawSprite(spriteID);
 }
